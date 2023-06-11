@@ -1,13 +1,13 @@
 import Layout from "@/components/layout"
 
-export default function Home(){
+export default function Finance(){
     return(
-      <Layout>
+        <Layout>
         <div className='text-black flex justify-between'>
         <h2>
-          Hello this is Home page
+          Hello this is Finance page
         </h2>
       </div>  
-    </Layout>  
+    </Layout>
     )
 }
