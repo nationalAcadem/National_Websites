@@ -1,10 +1,13 @@
 import { Schema, model, models } from 'mongoose';
 
 const studentSchema = new Schema({
-  student: String,
+  name: String,
   standard: String,
   batch : String,
+  mobileNumber : Number,
+  address:String,
   fees : Number,
+
   installments : [{date:Date , Ammount : Number}],
   tests : [{date : Date, test_name: String , marks:{type : Number , default:0}}],
   attendence : [{

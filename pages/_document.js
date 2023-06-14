@@ -4,9 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>
-          National Academy
-        </title>
       </Head>
       <body>
         <Main />

@@ -25,15 +25,12 @@ export default function NavBar(props){
   const router = useRouter();
   const {pathname} = router;
     return(
-        <div className="m-2">
-          <Disclosure as="nav">
-          <Disclosure.Button className="absolute top-4 right-4 inline-flex items-center peer justify-start rounded-md p-2 text-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:rind-white gruop hover:bg-gray-900">
-            <GiHamburgerMenu className="block md-hidden h-6 w-6"/>
-          </Disclosure.Button>
+        <div className="m-2 mt-0">
+          
           <div className="flex flex-col justify-center item-center">
             <div className="my-4">
-              <div className="border-b-4">
-                <Image className="ml-14 mb-2" src={logo} height={50} width={50}></Image>
+              <div className="border-b-4 bg-slate-200 p-2 rounded-md">
+                <Image className="ml-14 mb-2 h-20 w-auto" alt="NA" src={logo} ></Image>
                 <Link href={'/'} className="flex mb-2 justify-start items-center gap-4 pl-2">
                   <div className="text-2xl font-semibold mb-2">
                     National Academy
@@ -85,7 +82,7 @@ export default function NavBar(props){
           </div>
             
           </div>
-          </Disclosure> 
+          
         </div>
     )
 };
