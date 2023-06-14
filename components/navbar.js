@@ -37,43 +37,43 @@ export default function NavBar(props){
                   </div>
                 </Link>
               </div>
-              <div className="flex mt-2 mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex mt-2 mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'/'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Dashboard
                 </Link>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <IoIosPeople className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'students'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Students
                 </Link>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdCalendarMonth className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'attendence'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Attendence
                 </Link>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdAttachMoney className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'fees'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Finance
                 </Link>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <GiPapers className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'papers'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Paper Generating
                 </Link>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <SiTestcafe className="text-2xl text-gray-600 group-hover:text-white " />
                 <Link href={'results'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Tests and Results
                 </Link>
               </div>
-              <div className="flex mb-2 justify-start items-center gap-4 pl-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <div className="flex mb-2 justify-start items-center gap-4 pl-2 hover:bg-blue-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineMoreHoriz className="text-2xl text-gray-600 group-hover:text-white" />
                 <Link href={'others'} className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Others

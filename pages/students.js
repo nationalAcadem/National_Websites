@@ -1,5 +1,6 @@
 import Layout from "@/components/layout"
-import Modal from '@/pages/students/new_student';
+import Modal from '@/components/Students/new_student';
+import StudentTable from "../components/Students/studentTable";
 
 export default function Students() {
   
@@ -7,7 +8,7 @@ export default function Students() {
   return (
     <Layout>
         <Modal/>
-        <StudentTabel/>
+        <StudentTable/>
     </Layout>
   )
 }
