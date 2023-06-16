@@ -1,34 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FiTrash2 } from 'react-icons/fi';
 
-const StudentTable = () => {
-  // Sample data
-  const initialData = [
-    { id: 1, name: 'John Doe', standard: '10th', batch: 'A', mobile: '1234567890', address: '123 Street, City', fees: '$100' },
-    { id: 2, name: 'Jane Smith', standard: '12th', batch: 'B', mobile: '9876543210', address: '456 Avenue, Town', fees: '$150' },
-    // Add more data rows as needed
-  ];
 
-  const [data, setData] = useState(initialData);
+const StudentTable = ({reload}) => {
+  
+  const [students, setStudents] = useState([]);
 
-  const handleTableCellEdit = (id, field, value) => {
-    setData(prevData =>
-      prevData.map(item =>
-        item.id === id ? { ...item, [field]: value } : item
-      )
-    );
-  };
+  useEffect(() => {
+    fecthcStudents();
+  }, [reload]);
 
-  const handleDeleteRow = (id) => {
-    setData(prevData =>
-      prevData.filter(item => item.id !== id)
-    );
+  const fecthcStudents = () =>{
+    axios.get('/api/students')
+    .then(response => {
+      setStudents(response.data);
+    })
+    .catch(error => {
+      console.error('Error retrieving students:', error);
+    });
+  }
+
+  // const handleTableCellEdit = async (id, field, value) => {
+  //   setStudents(prevData =>
+  //     prevData.map(item =>
+  //       item._id === id ? { ...item, [field]: value } : item
+  //     )
+  //   );
+    
+  // };
+
+  const handleDeleteRow = (_id) => {
+    axios.delete(`/api/students?id=${_id}`)
+      .then(() => {
+        fecthcStudents();
+      })
+      .catch(error => {
+        console.error('Error deleting student:', error);
+      });
   };
 
   return (
-    <div className="container mt-10 mx-auto">
-      <table className="table-auto border-collapse">
-        <thead>
+      <table className="table-auto mt-4 border-collapse">
+      <thead>
           <tr>
             <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Name</th>
             <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Standard</th>
@@ -40,28 +54,58 @@ const StudentTable = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'name', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.name}
+          {students.map((item) => (
+            <tr key={item._id}>
+              <td>
+                <input
+                  type="text"
+                  value={item.name}
+                  onChange={(e) => handleTableCellEdit(item._id, 'name', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'standard', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.standard}
+              <td>
+                <input
+                  type="text"
+                  value={item.standard}
+                  onChange={(e) => handleTableCellEdit(item._id, 'standard', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'batch', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.batch}
+              <td>
+                <input
+                  type="text"
+                  value={item.batch}
+                  onChange={(e) => handleTableCellEdit(item._id, 'batch', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'mobile', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.mobile}
+              <td>
+                <input
+                  type="text"
+                  value={item.mobileNumber}
+                  onChange={(e) => handleTableCellEdit(item._id, 'mobileNumber', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'address', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.address}
+              <td>
+                <input
+                  type="text"
+                  value={item.address}
+                  onChange={(e) => handleTableCellEdit(item._id, 'address', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
-              <td contentEditable onBlur={(e) => handleTableCellEdit(item.id, 'fees', e.target.textContent)} className="border border-black px-4 py-2">
-                {item.fees}
+              <td>
+                <input
+                  type="text"
+                  value={item.fees}
+                  onChange={(e) => handleTableCellEdit(item._id, 'fees', e.target.value)}
+                  className="border border-black px-4 py-2 w-full"
+                />
               </td>
               <td className="border border-black px-4 py-2">
-                <button onClick={() => handleDeleteRow(item.id)}>
+                <button onClick={() => handleDeleteRow(item._id)}>
                   <FiTrash2 className="text-red-500 font-bold" />
                 </button>
               </td>
@@ -69,7 +113,6 @@ const StudentTable = () => {
           ))}
         </tbody>
       </table>
-    </div>
   );
 };
 

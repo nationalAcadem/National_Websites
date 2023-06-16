@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
-const Modal = () => {
+
+
+const Modal = ({onDataPosted}) => {
+    
     const modalRef = useRef(null);
 
     let [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,29 +40,27 @@ const Modal = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        setIsModalOpen(false);
-        setFormData({
-            name:'',
-            standard:'',
-            batch:'',
-            mobileNumber:'',
-            address:'',
-            fees:'',
-        })
-        // console.log('Submitted!');
-        // console.log('Name:', name);
-        // console.log('Standard:', standard);
-        // console.log('Bacth:',batch);
-        // console.log('Mobile Number:', mobileNumber);
-        // console.log('Address:', address);
-        // console.log('Fees:', fees);
+    async function handleSubmit  (e) {
         e.preventDefault();
+
+        await axios.post("api/students",formData);
         
+        setIsModalOpen(false);
+        alert("Student data added succesfully")
+        setFormData({
+            name: '',
+            standard: '',
+            batch: '',
+            mobileNumber: '',
+            address: '',
+            fees: '',
+        })
+        onDataPosted();
     };
 
     return (
         <div className='text-black flex justify-between'>
+            
             <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Add a New Student
             </button>
@@ -156,6 +158,7 @@ const Modal = () => {
                         </form>
                     </div>
                 </div>)}</div>
+                
 
     );
 };

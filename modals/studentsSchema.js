@@ -21,6 +21,5 @@ const studentSchema = new Schema({
     }]
 });
 
-const Student = models.Student || model('Student', studentSchema);
+export const Student = models.Student || model('Student', studentSchema);
 
-export default Student;
