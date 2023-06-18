@@ -92,8 +92,8 @@ const Modal = ({onDataPosted}) => {
                                     className="w-full px-3 py-2 border border-blue-300 rounded-md focus:outline-none focus:border-blue-500"
                                 >
                                     <option value="">Select Standard</option>
-                                    <option value="Batch I">XI</option>
-                                    <option value="Batch II">XII</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XII">XII</option>
                                 </select>
 
                             </div>

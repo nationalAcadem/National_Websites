@@ -20,11 +20,17 @@ export default async function handle(req, res) {
         res.json(studentInfo)
     } 
 
-    // if(method === 'PUT'){
-    //     const {title,description,price,_id} = req.body;
-    //     await Product.updateOne({_id},{title,description,price})
-    //     res.json(true)
-    // }
+    if(method === 'PUT'){
+        try {
+            for (const { _id, name, standard, batch, mobileNumber, address, fees } of req.body) {
+              await Student.updateOne({ _id }, { $set: { name, standard, batch, mobileNumber, address, fees } });
+            }
+            res.json(true)
+            console.log(`${Student.length} document(s) updated`);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+    }
 
     if(method === 'DELETE'){
         await Student.deleteOne({_id : req.query?.id});
