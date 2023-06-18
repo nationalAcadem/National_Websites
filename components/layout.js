@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 export default function Layout({ children }) {
     return (
-        <div className=" min-h-screen flex">
+        <div className="min-h-screen flex flex-row flex-grow">
             <Head>
                 <title>National Academy</title>
             </Head>
