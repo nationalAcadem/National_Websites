@@ -11,13 +11,8 @@ const studentSchema = new Schema({
   installments : [{date:Date , Ammount : Number}],
   tests : [{date : Date, test_name: String , marks:{type : Number , default:0}}],
   attendence : [{
-        date:{
-            type:Date,
-            default:Date.now,
-        },
-        status: {
-            type: String,
-        }
+    "date": Date,
+    "status": String
     }]
 });
 

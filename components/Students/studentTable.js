@@ -15,7 +15,6 @@ const StudentTable = ({reload}) => {
     axios.get('/api/students')
     .then(response => {
       setStudents(response.data)
-      // console.log(students)
     })
     .catch(error => {
       console.error('Error retrieving students:', error);
@@ -43,16 +42,17 @@ const StudentTable = ({reload}) => {
   };
 
   return (
-      <table className="table-auto mt-4 border-collapse">
+    <div className='text-sm'>
+      <table className="mt-4 border-collapse flex-shrink">
       <thead>
           <tr>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Name</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Standard</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Batch</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Mobile Number</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Address</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Fees</th>
-            <th className="bg-blue-500 text-white font-bold border border-black px-4 py-2">Actions</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Name</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Standard</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Batch</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Mobile Number</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Address</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Fees</th>
+            <th className="bg-blue-500 text-white font-bold border border-black px-2 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -63,7 +63,7 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.name}
                   onChange={(e) => handleTableCellEdit(item_index, 'name', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full font-semibold"
                 />
               </td>
               <td>
@@ -71,7 +71,7 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.standard}
                   onChange={(e) => handleTableCellEdit(item_index, 'standard', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full"
                 />
               </td>
               <td>
@@ -79,7 +79,7 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.batch}
                   onChange={(e) => handleTableCellEdit(item_index, 'batch', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full"
                 />
               </td>
               <td>
@@ -87,7 +87,7 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.mobileNumber}
                   onChange={(e) => handleTableCellEdit(item_index, 'mobileNumber', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full"
                 />
               </td>
               <td>
@@ -95,7 +95,7 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.address}
                   onChange={(e) => handleTableCellEdit(item_index, 'address', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full"
                 />
               </td>
               <td>
@@ -103,10 +103,10 @@ const StudentTable = ({reload}) => {
                   type="text"
                   value={item.fees}
                   onChange={(e) => handleTableCellEdit(item_index, 'fees', e.target.value)}
-                  className="border border-black px-4 py-2 w-full"
+                  className="border border-black px-2 py-2 w-full"
                 />
               </td>
-              <td className="border border-black px-4 py-2">
+              <td className="border border-black px-2">
                 <button onClick={() => handleDeleteRow(item._id)}>
                   <FiTrash2 className="text-red-500 font-bold" />
                 </button>
@@ -115,6 +115,7 @@ const StudentTable = ({reload}) => {
           ))}
         </tbody>
       </table>
+    </div>
   );
 };
 

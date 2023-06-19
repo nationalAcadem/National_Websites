@@ -114,7 +114,7 @@ const Modal = ({onDataPosted}) => {
                             <div className="mb-4">
                                 <label className="block text-blue-800 font-bold mb-1">Mobile Number:</label>
                                 <input
-                                    type="tel"
+                                    type="number"
                                     name='mobileNumber'
                                     value={formData.mobileNumber}
                                     onChange={handleChange}
