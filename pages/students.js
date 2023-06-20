@@ -11,10 +11,14 @@ export default function Students() {
     setReloadFetchData(true);
   };
 
+  
+
   return (
     <Layout>
+      <div className="fex fex-col justify-center">
         <Modal onDataPosted={handleDataPosted}/>
-        <StudentTable reload={reloadFetchData} />
+        <StudentTable reload={reloadFetchData}/>
+      </div>
     </Layout>
   )
 }
